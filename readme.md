@@ -1,5 +1,6 @@
-#This is GameGlam C# Project readme.
-##The project was created on .net core 5
+# This is GameGlam C# Project readme.
+
+## The project was created on .net core 5
 
 The idea is to create a web application that gets data from online web API and use them for this project.
 
