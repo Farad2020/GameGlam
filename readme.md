@@ -5,5 +5,7 @@
 The idea is to create a web application that gets data from online web API and use them for this project.
 
 The currently used tools:
+
 ["GamerPower" web API](https://rapidapi.com/digiwalls/api/gamerpower)
+
 [Json Formatting tool](https://json2csharp.com/)
