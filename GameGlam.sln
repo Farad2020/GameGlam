@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameGlam", "GameGlam\GameGlam.csproj", "{21F75A95-5E9F-41D5-8970-12494B911A46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameGlam", "GameGlam\GameGlam.csproj", "{21F75A95-5E9F-41D5-8970-12494B911A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameGlamer", "GameGlamer\GameGlamer.csproj", "{6078246C-C553-43F7-85C9-A78AABDEE9A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{21F75A95-5E9F-41D5-8970-12494B911A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21F75A95-5E9F-41D5-8970-12494B911A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21F75A95-5E9F-41D5-8970-12494B911A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6078246C-C553-43F7-85C9-A78AABDEE9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6078246C-C553-43F7-85C9-A78AABDEE9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6078246C-C553-43F7-85C9-A78AABDEE9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6078246C-C553-43F7-85C9-A78AABDEE9A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
