@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameGlam.Models
 {
-    public class DLCorLoot
+    public class DLCorLootDeal
     {
         public int id { get; set; }
         public string title { get; set; }
