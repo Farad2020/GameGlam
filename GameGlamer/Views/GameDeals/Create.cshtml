@@ -1,0 +1,112 @@
+﻿@model GameGlamer.Models.GameDeal
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>GameDeal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="worth" class="control-label"></label>
+                <input asp-for="worth" class="form-control" />
+                <span asp-validation-for="worth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="thumbnail" class="control-label"></label>
+                <input asp-for="thumbnail" class="form-control" />
+                <span asp-validation-for="thumbnail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input asp-for="image" class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="instructions" class="control-label"></label>
+                <input asp-for="instructions" class="form-control" />
+                <span asp-validation-for="instructions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="open_giveaway_url" class="control-label"></label>
+                <input asp-for="open_giveaway_url" class="form-control" />
+                <span asp-validation-for="open_giveaway_url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="published_date" class="control-label"></label>
+                <input asp-for="published_date" class="form-control" />
+                <span asp-validation-for="published_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <input asp-for="type" class="form-control" />
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="platforms" class="control-label"></label>
+                <input asp-for="platforms" class="form-control" />
+                <span asp-validation-for="platforms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="end_date" class="control-label"></label>
+                <input asp-for="end_date" class="form-control" />
+                <span asp-validation-for="end_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="users" class="control-label"></label>
+                <input asp-for="users" class="form-control" />
+                <span asp-validation-for="users" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gamerpower_url" class="control-label"></label>
+                <input asp-for="gamerpower_url" class="form-control" />
+                <span asp-validation-for="gamerpower_url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="open_giveaway" class="control-label"></label>
+                <input asp-for="open_giveaway" class="form-control" />
+                <span asp-validation-for="open_giveaway" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

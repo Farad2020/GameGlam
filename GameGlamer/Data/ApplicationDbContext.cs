@@ -19,3 +19,4 @@ namespace GameGlamer.Data
         public DbSet<DLCorLootDeal> Enrollments { get; set; }
     }
 }
+// Login test@mail.ru Password: Test1234!
