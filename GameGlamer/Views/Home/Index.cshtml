@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model HomeMainVM
+
 <div class="text-center" style="min-height: 200vh">
     <h1 class="display-4">Welcome To <span class="text-courgette">GameGlam</span>!</h1>
     <p>Here you can observe game and loot giveaways, just like these observing the sea.</p>
@@ -19,69 +21,69 @@
     <div class="container">
         <div class="row">
             <!-- click="redirect(item.id)"  v-for="item in content" :key="item.id"-->
-            <div class="col-3 pb-3">
-                <div class="mdc-card mdc-card--outlined">
-                    <div class="mdc-card__primary-action">
-                        <div class="mdc-card__media">
-                            <div class="md-image">
-                                <img v-bind:src="item.thumbnail" class="d-block w-100 my_thumbnail" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mdc-card__actions">
-                        <div class="mdc-card__action-buttons">
-                            <button class="mdc-button mdc-card__action mdc-card__action--button">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="mdc-button__label"></span>
-                            </button>
-                        </div>
-                        <div class="mdc-card__action-icons">
-                            <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Favorite">favorite</button>
+            @foreach (GameDeal gameDeal in Model.topGames)
+            {
+                <div class="col-3 pb-3">
+                    <div class="card w-100">
+                        <img class="card-img-top" src="@gameDeal.thumbnail" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@gameDeal.title</h5>
                         </div>
                     </div>
                 </div>
+            }
+
+        </div>
+    </div>
+
+    <div class="container">
+        <nav class="nav justify-content-center">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Games</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Loot</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <ul class="list-group">
+                    @foreach (GameDeal gameDeal in Model.top16Games)
+                    {
+                        <li class="list-group-item">@gameDeal.title</li>
+                    }
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <ul class="list-group">
+                    @foreach (DLCorLootDeal lootDeal in Model.top16Loot)
+                    {
+                        <li class="list-group-item">@lootDeal.title</li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
-</div>
 
 
 
 </div>
+
 <!--
 
-<div>
 
-        <div class="pb-2">
-            <h3 class="m-0 text-black my_main_header">Popular</h3>
-            <hr />
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div href="redirect(item.id)" class="col-3 pb-3" v-for="item in content" :key="item.id">
-                    <div class="mdc-card mdc-card--outlined">
-                        <div class="mdc-card__primary-action">
-                            <div class="mdc-card__media">
-                                <div class="md-image">
-                                    <img v-bind:src="item.thumbnail" class="d-block w-100 my_thumbnail" alt="...">
-                                </div>
+                <ul class="mdc-list mdc-list--two-line mdc-list--image-list">
+                    <li click="redirect(item.id)" class="mdc-list-item" tabindex="0" v-for="item in loot" :key="item.id">
+                        <div class="mdc-list--icon-list m-1">
+                            <div class="my_search_list_image">
+                                <img v-bind:src="item.thumbnail" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <div class="mdc-card__actions">
-                            <div class="mdc-card__action-buttons">
-                                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                                    <div class="mdc-button__ripple"></div>
-                                    <span class="mdc-button__label">{{getTitleSnippet(item.title)}}</span>
-                                </button>
-                            </div>
-                            <div class="mdc-card__action-icons">
-                                <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Favorite">favorite</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text"></span>
+                            <span class="mdc-list-item__secondary-text"></span>
+                        </span>
+                        <div class="w-100"></div>
+                    </li>
+                    <div class="mdc-list-divider mt-1 mb-1"></div>
+                </ul>
 -->
