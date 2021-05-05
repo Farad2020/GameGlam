@@ -183,3 +183,8 @@ C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\GameDeals\Details.cshtml.g.cs
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\GameDeals\Edit.cshtml.g.cs
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\GameDeals\Index.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\DLCorLootDeals\Create.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\DLCorLootDeals\Delete.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\DLCorLootDeals\Details.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\DLCorLootDeals\Edit.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\DLCorLootDeals\Index.cshtml.g.cs

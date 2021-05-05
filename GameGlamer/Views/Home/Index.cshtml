@@ -2,7 +2,86 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center" style="min-height: 200vh">
+    <h1 class="display-4">Welcome To <span class="text-courgette">GameGlam</span>!</h1>
+    <p>Here you can observe game and loot giveaways, just like these observing the sea.</p>
+
+    <div class="my_image_banner">
+        <img class="banner_image" src="https://i.pinimg.com/originals/b8/2f/28/b82f28a7e9c8fcb3868d3d94652c107c.gif" />
+    </div>
+
+
+    <div class="pb-2">
+        <h3 class="m-0 text-black my_main_header">Popular</h3>
+        <hr />
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- click="redirect(item.id)"  v-for="item in content" :key="item.id"-->
+            <div class="col-3 pb-3">
+                <div class="mdc-card mdc-card--outlined">
+                    <div class="mdc-card__primary-action">
+                        <div class="mdc-card__media">
+                            <div class="md-image">
+                                <img v-bind:src="item.thumbnail" class="d-block w-100 my_thumbnail" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdc-card__actions">
+                        <div class="mdc-card__action-buttons">
+                            <button class="mdc-button mdc-card__action mdc-card__action--button">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label"></span>
+                            </button>
+                        </div>
+                        <div class="mdc-card__action-icons">
+                            <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Favorite">favorite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+</div>
+<!--
+
+<div>
+
+        <div class="pb-2">
+            <h3 class="m-0 text-black my_main_header">Popular</h3>
+            <hr />
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div href="redirect(item.id)" class="col-3 pb-3" v-for="item in content" :key="item.id">
+                    <div class="mdc-card mdc-card--outlined">
+                        <div class="mdc-card__primary-action">
+                            <div class="mdc-card__media">
+                                <div class="md-image">
+                                    <img v-bind:src="item.thumbnail" class="d-block w-100 my_thumbnail" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                                <button class="mdc-button mdc-card__action mdc-card__action--button">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">{{getTitleSnippet(item.title)}}</span>
+                                </button>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                                <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Favorite">favorite</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->

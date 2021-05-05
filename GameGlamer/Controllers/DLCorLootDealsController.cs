@@ -12,31 +12,32 @@ using Newtonsoft.Json;
 
 namespace GameGlamer.Controllers
 {
-    public class GameDealsController : Controller
+    public class DLCorLootDealsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public GameDealsController(ApplicationDbContext context)
+        public DLCorLootDealsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: GameDeals
+        // GET: DLCorLootDeals
         public async Task<IActionResult> Index()
         {
-            List<GameDeal> dataList = new List<GameDeal>();
+            List<DLCorLootDeal> dataList = new List<DLCorLootDeal>();
             using (var httpClient = new HttpClient())
             {
                 using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaways?type=game"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    dataList = JsonConvert.DeserializeObject<List<GameDeal>>(apiResponse);
+                    dataList = JsonConvert.DeserializeObject<List<DLCorLootDeal>>(apiResponse);
                 }
             }
             return View(dataList);
+           //return View(await _context.Enrollments.ToListAsync());
         }
 
-        // GET: GameDeals/Details/5
+        // GET: DLCorLootDeals/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,39 +45,39 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var gameDeal = await _context.Courses
+            var dLCorLootDeal = await _context.Enrollments
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (gameDeal == null)
+            if (dLCorLootDeal == null)
             {
                 return NotFound();
             }
 
-            return View(gameDeal);
+            return View(dLCorLootDeal);
         }
 
-        // GET: GameDeals/Create
+        // GET: DLCorLootDeals/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: GameDeals/Create
+        // POST: DLCorLootDeals/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,title,worth,thumbnail,image,description,instructions,open_giveaway_url,published_date,type,platforms,end_date,users,status,gamerpower_url,open_giveaway")] GameDeal gameDeal)
+        public async Task<IActionResult> Create([Bind("id,title,worth,thumbnail,image,description,instructions,open_giveaway_url,published_date,type,platforms,end_date,users,status,gamerpower_url,open_giveaway")] DLCorLootDeal dLCorLootDeal)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(gameDeal);
+                _context.Add(dLCorLootDeal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(gameDeal);
+            return View(dLCorLootDeal);
         }
 
-        // GET: GameDeals/Edit/5
+        // GET: DLCorLootDeals/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,22 +85,22 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var gameDeal = await _context.Courses.FindAsync(id);
-            if (gameDeal == null)
+            var dLCorLootDeal = await _context.Enrollments.FindAsync(id);
+            if (dLCorLootDeal == null)
             {
                 return NotFound();
             }
-            return View(gameDeal);
+            return View(dLCorLootDeal);
         }
 
-        // POST: GameDeals/Edit/5
+        // POST: DLCorLootDeals/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,title,worth,thumbnail,image,description,instructions,open_giveaway_url,published_date,type,platforms,end_date,users,status,gamerpower_url,open_giveaway")] GameDeal gameDeal)
+        public async Task<IActionResult> Edit(int id, [Bind("id,title,worth,thumbnail,image,description,instructions,open_giveaway_url,published_date,type,platforms,end_date,users,status,gamerpower_url,open_giveaway")] DLCorLootDeal dLCorLootDeal)
         {
-            if (id != gameDeal.id)
+            if (id != dLCorLootDeal.id)
             {
                 return NotFound();
             }
@@ -108,12 +109,12 @@ namespace GameGlamer.Controllers
             {
                 try
                 {
-                    _context.Update(gameDeal);
+                    _context.Update(dLCorLootDeal);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GameDealExists(gameDeal.id))
+                    if (!DLCorLootDealExists(dLCorLootDeal.id))
                     {
                         return NotFound();
                     }
@@ -124,10 +125,10 @@ namespace GameGlamer.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(gameDeal);
+            return View(dLCorLootDeal);
         }
 
-        // GET: GameDeals/Delete/5
+        // GET: DLCorLootDeals/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,30 +136,30 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var gameDeal = await _context.Courses
+            var dLCorLootDeal = await _context.Enrollments
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (gameDeal == null)
+            if (dLCorLootDeal == null)
             {
                 return NotFound();
             }
 
-            return View(gameDeal);
+            return View(dLCorLootDeal);
         }
 
-        // POST: GameDeals/Delete/5
+        // POST: DLCorLootDeals/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var gameDeal = await _context.Courses.FindAsync(id);
-            _context.Courses.Remove(gameDeal);
+            var dLCorLootDeal = await _context.Enrollments.FindAsync(id);
+            _context.Enrollments.Remove(dLCorLootDeal);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GameDealExists(int id)
+        private bool DLCorLootDealExists(int id)
         {
-            return _context.Courses.Any(e => e.id == id);
+            return _context.Enrollments.Any(e => e.id == id);
         }
     }
 }
