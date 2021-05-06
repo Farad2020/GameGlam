@@ -26,8 +26,8 @@ namespace GameGlamer.Controllers
             using (var httpClient = new HttpClient())
             {
                 mainVM.topGames = getTopNGamesAsync(12, httpClient).Result;
-                mainVM.top16Games = getTopNGamesAsync(16, httpClient).Result;
-                mainVM.top16Loot = getTopNLootAsync(16, httpClient).Result;
+                mainVM.top16Games = getTopNGamesAsync(8, httpClient).Result;
+                mainVM.top16Loot = getTopNLootAsync(8, httpClient).Result;
             }
 
             return View(mainVM);

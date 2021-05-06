@@ -17,6 +17,11 @@ for details on configuring this project to bundle and minify static web assets. 
     overflow: hidden;
 }
 
+.my_search_list_image {
+    height: auto;
+    width: 5vw;
+}
+
 /*text styles*/
 .text-courgette {
     font-family: 'Courgette', cursive;
@@ -35,9 +40,24 @@ a.navbar-brand {
     font-size: x-large;
 }
 
+.item_primary_text{
+    font-weight: bold;
+    font-size: large
+}
+
+.item_secondary_text{
+    font-style: italic;
+}
+
+
+/* Home List */
+.my_list_item {
+    max-height: 5vh;
+    height: 5vh;
+}
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {

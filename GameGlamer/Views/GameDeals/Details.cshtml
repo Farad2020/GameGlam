@@ -13,105 +13,125 @@
 </head>
 <body>
 
-<div>
-    <h4>GameDeal</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.worth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.worth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.thumbnail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.thumbnail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.image)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.image)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.instructions)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.instructions)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.open_giveaway_url)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.open_giveaway_url)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.published_date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.published_date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.platforms)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.platforms)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.end_date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.end_date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.users)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.users)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.gamerpower_url)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.gamerpower_url)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.open_giveaway)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.open_giveaway)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="pt-3">
+        <h3 class="m-0 text-black my_main_header text-center">@Model.title</h3>
+        <hr />
+        <div class="row">
+            <div class="col-7">
+                <div class="">
+                    <img src="@Model.thumbnail" class="d-block w-100 h-100" alt="...">
+                </div>
+                <hr />
+                <dl class="row">
+
+                    @if (Model.worth != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.worth)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.worth)
+                        </dd>
+                    }
+
+                    @if (Model.description != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.description)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.description)
+                        </dd>
+                    }
+
+                    @if (Model.open_giveaway_url != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.open_giveaway_url)
+                        </dt>
+                        <dd class="col-sm-10">
+                            <span><a class="text_det_link" href="@Model.open_giveaway_url" target="_blank">Click here to get the information source!</a> </span>
+                        </dd>
+                    }
+
+                    @if (Model.published_date != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.published_date)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.published_date)
+                        </dd>
+                    }
+
+                    @if (Model.type != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.type)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.type)
+                        </dd>
+                    }
+
+                    @if (Model.platforms != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.platforms)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.platforms)
+                        </dd>
+                    }
+
+                    @if (Model.end_date != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.end_date)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.end_date)
+                        </dd>
+                    }
+
+                    @if (Model.users != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.users)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.users)
+                        </dd>
+                    }
+
+                    @if (Model.status != null)
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.status)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.status)
+                        </dd>
+                    }
+                </dl>
+            </div>
+
+            <div class="col">
+                <img class="w-100 my_sidebar_gif" src="https://media0.giphy.com/media/IeSXccYMz3K4U/giphy.gif?cid=790b761128d6f0e3972838cb2b36f8383c6ccd009804aece&rid=giphy.gif&ct=g">
+            </div>
+
+            <!--
+                
+            temple
+        https://media0.giphy.com/media/10GVNnqO2ZoAh2/giphy.gif?cid=790b7611680a81fc66c7b57577b7643cf1b0c593249651e9&rid=giphy.gif&ct=g
+                batman
+                https://media4.giphy.com/media/l3V0hWP5as4hPaxbi/giphy.gif?cid=790b7611ccdf76c15d17cfa00058ba45a411ae8f78b409e9&rid=giphy.gif&ct=g
+
+    -->
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <a asp-controller="Home" asp-action="Index">Back to Main Page</a>
+    </div>
 </body>
 </html>

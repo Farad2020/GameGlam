@@ -27,7 +27,7 @@ namespace GameGlamer.Controllers
             List<DLCorLootDeal> dataList = new List<DLCorLootDeal>();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaways?type=game"))
+                using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaways?type=loot"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     dataList = JsonConvert.DeserializeObject<List<DLCorLootDeal>>(apiResponse);
@@ -45,8 +45,15 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var dLCorLootDeal = await _context.Enrollments
-                .FirstOrDefaultAsync(m => m.id == id);
+            DLCorLootDeal dLCorLootDeal = new DLCorLootDeal();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaway?id=" + id))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    dLCorLootDeal = JsonConvert.DeserializeObject<DLCorLootDeal>(apiResponse);
+                }
+            }
             if (dLCorLootDeal == null)
             {
                 return NotFound();

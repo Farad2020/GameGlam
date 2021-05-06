@@ -44,8 +44,15 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var gameDeal = await _context.Courses
-                .FirstOrDefaultAsync(m => m.id == id);
+            GameDeal gameDeal = new GameDeal();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaway?id=" + id))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    gameDeal = JsonConvert.DeserializeObject<GameDeal>(apiResponse);
+                }
+            }
             if (gameDeal == null)
             {
                 return NotFound();
