@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = "_Layout";
+}
+
+@model SearchVM
+
+<div class="text-center">
+    <div class="pb-2">
+        <div class="d-flex justify-content-center h-100">
+            <form class="form-inline" asp-controller="Home" asp-action="Search" method="get">
+                <div class="searchbar">
+                    <input class="form-control search_input" type="text" name="search_str" placeholder="Search Games...">
+                    <button class="btn search_icon" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <hr />
+    </div>
+
+    <div class="container">
+        @if (!((Model.searchedGames == null || Model.searchedGames.Count() == 0) && (Model.searchedLoot == null || Model.searchedLoot.Count() == 0)))
+        {
+            <nav class="nav justify-content-center">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-games-tab" data-bs-toggle="tab" data-bs-target="#nav-games" type="button" role="tab" aria-controls="nav-games" aria-selected="true">Games</button>
+                    <button class="nav-link" id="nav-loot-tab" data-bs-toggle="tab" data-bs-target="#nav-loot" type="button" role="tab" aria-controls="nav-loot" aria-selected="false">Loot</button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-games" role="tabpanel" aria-labelledby="nav-home-tab">
+                    @if (Model.searchedGames != null)
+                    {
+                        <ul class="list-group">
+                            @foreach (GameDeal gameDeal in Model.searchedGames)
+                            {
+                                <li class="list-group-item my_list_item mb-2" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img class="my_search_list_image d-block w-100" src="@gameDeal.thumbnail" alt="...">
+                                        </div>
+                                        <div class="col m-0 justify-content-start">
+                                            <div class="text-left">
+                                                <span class="item_primary_text">@gameDeal.title</span>
+                                                <br />
+                                                <span class="item_secondary_text">@gameDeal.platforms</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a asp-controller="GameDeals" asp-action="Details" asp-route-id="@gameDeal.id" class="stretched-link h-100"></a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else if (!String.IsNullOrEmpty(Model.search_str))
+                    {
+                        <h3 class="m-0 text-black my_main_header">No Games Found!</h3>
+                    }
+                </div>
+                <div class="tab-pane fade" id="nav-loot" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    @if (Model.searchedLoot != null)
+                    {
+                        <ul class="list-group">
+                            @foreach (DLCorLootDeal lootDeal in Model.searchedLoot)
+                            {
+                                <li class="list-group-item my_list_item mb-2" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img class="my_search_list_image d-block w-100" src="@lootDeal.thumbnail" alt="...">
+                                        </div>
+                                        <div class="col m-0 justify-content-start">
+                                            <div class="text-left">
+                                                <span class="item_primary_text">@lootDeal.title</span>
+                                                <br />
+                                                <span class="item_secondary_text">@lootDeal.platforms</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a asp-controller="DLCorLootDeals" asp-action="Details" asp-route-id="@lootDeal.id" class="stretched-link"></a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else if (!String.IsNullOrEmpty(Model.search_str))
+                    {
+                        <h3 class="m-0 text-black my_main_header">No Loot Found!</h3>
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            @if (!String.IsNullOrEmpty(Model.search_str))
+            {
+                <h3 class="m-0 text-black my_main_header">Nothing Was Found!</h3>
+            }
+            else
+            {
+                <h3 class="m-0 text-black my_main_header">Start Searching Something</h3>
+            }
+        }
+    </div>
+
+    </div>
