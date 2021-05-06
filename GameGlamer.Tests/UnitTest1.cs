@@ -1,4 +1,12 @@
+using GameGlamer.Controllers;
+using GameGlamer.Data;
+using GameGlamer.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Moq;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace GameGlamer.Tests
 {
@@ -10,9 +18,66 @@ namespace GameGlamer.Tests
         }
 
         [Test]
-        public void Test1()
+        public void TestToCheckIfEverythingWorking()
         {
             Assert.Pass();
+        }
+
+        //Testing Home Controller
+        [Test]
+        public void HomeControllerIndexTest()
+        {
+            // Arrange
+            var mockLogger = new Mock<ILogger<HomeController>>();
+
+            var controller = new HomeController(mockLogger.Object);
+            // Act
+            var result = controller.IndexAsync();
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void HomeControllerSearchTest()
+        {
+            // Arrange
+            var mockLogger = new Mock<ILogger<HomeController>>();
+
+            var controller = new HomeController(mockLogger.Object);
+            // Act
+            var result = controller.Search("Withcer");
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void GamesControllerDetailsTest()
+        {
+            // Arrange
+            var mockCont = new Mock<ApplicationDbContext>(new DbContextOptions<ApplicationDbContext>());
+
+            var controller = new GameDealsController(mockCont.Object);
+            // Act
+            var result = controller.Details(4);
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void LootControllerDetailsTest()
+        {
+            // Arrange
+            var mockCont = new Mock<ApplicationDbContext>(new DbContextOptions < ApplicationDbContext >());
+
+            var controller = new DLCorLootDealsController(mockCont.Object);
+            // Act
+            var result = controller.Details(40);
+
+            // Assert
+            Assert.IsNotNull(result);
         }
     }
 }
