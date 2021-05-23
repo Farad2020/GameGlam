@@ -12,116 +12,34 @@
     <title>Index</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.worth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.thumbnail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.instructions)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.open_giveaway_url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.published_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.platforms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.end_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.users)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.gamerpower_url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.open_giveaway)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.worth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.thumbnail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.instructions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.open_giveaway_url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.published_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.platforms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.end_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.users)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gamerpower_url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.open_giveaway)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="container">
+        <div class="pb-2">
+            <h3 class="m-0 text-black my_main_header text-center">All Game Deals</h3>
+            <hr />
+        </div>
+
+        <div>
+            <ul class="list-group">
+                @foreach (GameDeal gameDeal in Model)
+                {
+                    <li class="list-group-item my_list_item mb-2" tabindex="0">
+                        <div class="row">
+                            <div class="col-3">
+                                <img class="my_search_list_image d-block w-100" src="@gameDeal.thumbnail" alt="...">
+                            </div>
+                            <div class="col m-0 justify-content-start">
+                                <div class="text-left">
+                                    <span class="item_primary_text">@gameDeal.title</span>
+                                    <br />
+                                    <span class="item_secondary_text">@gameDeal.platforms</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a asp-controller="GameDeals" asp-action="Details" asp-route-id="@gameDeal.id" class="stretched-link"></a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

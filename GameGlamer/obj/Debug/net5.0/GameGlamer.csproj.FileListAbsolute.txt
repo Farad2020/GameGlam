@@ -191,3 +191,9 @@ C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\Home\List.cshtml.g.cs
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\GameDeals\SavedGames.cshtml.g.cs
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Views\DLCorLootDeals\SavedLoot.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
