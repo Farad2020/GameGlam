@@ -200,5 +200,24 @@ namespace GameGlamer.Controllers
         {
             return _context.DLCorLootDeals.Any(e => e.id == id);
         }
+
+        public async Task<IActionResult> SavedLoot()
+        {
+            List<DLCorLootDeal> lootDeals = new List<DLCorLootDeal>();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var items = _context.UserLoots.Where(e => e.userId == userId).ToList();
+            using (var httpClient = new HttpClient())
+            {
+                for (int i = 0; i < items.Count(); i++)
+                {
+                    using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaway?id=" + items.ElementAt(i).gameId))
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        lootDeals.Add(JsonConvert.DeserializeObject<DLCorLootDeal>(apiResponse));
+                    }
+                }
+            }
+            return View(lootDeals.AsEnumerable());
+        }
     }
 }

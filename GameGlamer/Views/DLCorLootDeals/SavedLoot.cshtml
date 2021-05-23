@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GameGlamer.Models.DLCorLootDeal>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="pb-2">
+            <h3 class="m-0 text-black my_main_header text-center">Saved Loot and DLC Deals</h3>
+            <hr />
+        </div>
+
+        <div>
+            <ul class="list-group">
+                @foreach (DLCorLootDeal lootDeal in Model)
+                {
+                    <li class="list-group-item my_list_item mb-2" tabindex="0">
+                        <div class="row">
+                            <div class="col-3">
+                                <img class="my_search_list_image d-block w-100" src="@lootDeal.thumbnail" alt="...">
+                            </div>
+                            <div class="col m-0 justify-content-start">
+                                <div class="text-left">
+                                    <span class="item_primary_text">@lootDeal.title</span>
+                                    <br />
+                                    <span class="item_secondary_text">@lootDeal.platforms</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a asp-controller="DLCorLootDeals" asp-action="Details" asp-route-id="@lootDeal.id" class="stretched-link"></a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

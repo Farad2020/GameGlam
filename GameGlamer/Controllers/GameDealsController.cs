@@ -200,5 +200,26 @@ namespace GameGlamer.Controllers
         {
             return _context.GameDeals.Any(e => e.id == id);
         }
+
+        public async Task<IActionResult> SavedGames()
+        {
+            List<GameDeal> gameDeals = new List<GameDeal>();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var items = _context.UserGames.Where(e => e.userId == userId).ToList();
+            using (var httpClient = new HttpClient())
+            {
+                for (int i = 0; i < items.Count(); i++)
+                {
+                    using (var response = await httpClient.GetAsync("https://www.gamerpower.com/api/giveaway?id=" + items.ElementAt(i).gameId))
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        gameDeals.Add(JsonConvert.DeserializeObject<GameDeal>(apiResponse));
+                    }
+                }
+            }
+            return View(gameDeals.AsEnumerable());
+        }
+
+
     }
 }
