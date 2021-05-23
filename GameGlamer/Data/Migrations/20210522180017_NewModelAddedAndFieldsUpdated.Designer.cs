@@ -4,14 +4,16 @@ using GameGlamer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameGlamer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210522180017_NewModelAddedAndFieldsUpdated")]
+    partial class NewModelAddedAndFieldsUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,7 +75,7 @@ namespace GameGlamer.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("DLCorLootDeals");
+                    b.ToTable("Enrollments");
                 });
 
             modelBuilder.Entity("GameGlamer.Models.GameDeal", b =>
@@ -130,43 +132,7 @@ namespace GameGlamer.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("GameDeals");
-                });
-
-            modelBuilder.Entity("GameGlamer.Models.UserGame", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("gameId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("UserGames");
-                });
-
-            modelBuilder.Entity("GameGlamer.Models.UserLoot", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("gameId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("UserLoots");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

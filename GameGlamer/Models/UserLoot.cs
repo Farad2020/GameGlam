@@ -5,23 +5,22 @@ using System.Threading.Tasks;
 
 namespace GameGlamer.Models
 {
-    public class UserGame
+    public class UserLoot
     {
         public int id { get; set; }
         public String userId { get; set; }
         public long gameId { get; set; }
 
-        public UserGame()
-        {
+        UserLoot() { 
         }
 
-        public UserGame(string userId, long gameId)
+        public UserLoot(string userId, long gameId)
         {
             this.userId = userId;
             this.gameId = gameId;
         }
 
-        public UserGame(int id, string userId, long gameId)
+        public UserLoot(int id, string userId, long gameId)
         {
             this.id = id;
             this.userId = userId;

@@ -240,3 +240,4 @@ C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer.Tests\obj\Debug\netcoreapp5.0\GameGlamer.Tests.genruntimeconfig.cache
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer.Tests\bin\Debug\netcoreapp5.0\Castle.Core.dll
 C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer.Tests\bin\Debug\netcoreapp5.0\Moq.dll
+C:\Users\Faraby\Desktop\Course 3 Semestr 6\DotNet Core\GameGlamProject\GameGlam\GameGlamer.Tests\bin\Debug\netcoreapp5.0\GameGlamer.StaticWebAssets.xml

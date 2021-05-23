@@ -92,7 +92,7 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var dLCorLootDeal = await _context.Enrollments.FindAsync(id);
+            var dLCorLootDeal = await _context.DLCorLootDeals.FindAsync(id);
             if (dLCorLootDeal == null)
             {
                 return NotFound();
@@ -143,7 +143,7 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var dLCorLootDeal = await _context.Enrollments
+            var dLCorLootDeal = await _context.DLCorLootDeals
                 .FirstOrDefaultAsync(m => m.id == id);
             if (dLCorLootDeal == null)
             {
@@ -158,15 +158,15 @@ namespace GameGlamer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var dLCorLootDeal = await _context.Enrollments.FindAsync(id);
-            _context.Enrollments.Remove(dLCorLootDeal);
+            var dLCorLootDeal = await _context.DLCorLootDeals.FindAsync(id);
+            _context.DLCorLootDeals.Remove(dLCorLootDeal);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DLCorLootDealExists(int id)
         {
-            return _context.Enrollments.Any(e => e.id == id);
+            return _context.DLCorLootDeals.Any(e => e.id == id);
         }
     }
 }

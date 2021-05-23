@@ -4,14 +4,16 @@ using GameGlamer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GameGlamer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210523162729_UpdatedModels")]
+    partial class UpdatedModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,12 +142,6 @@ namespace GameGlamer.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("gameId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("id");
 
                     b.ToTable("UserGames");
@@ -157,12 +153,6 @@ namespace GameGlamer.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("gameId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 

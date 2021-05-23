@@ -9,6 +9,7 @@ using GameGlamer.Data;
 using GameGlamer.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace GameGlamer.Controllers
 {
@@ -57,8 +58,40 @@ namespace GameGlamer.Controllers
             {
                 return NotFound();
             }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var items = _context.UserLoots.Where(e => e.userId == userId && e.gameId == gameDeal.id);
+            if(items.Count() == 0)
+            {
+                ViewBag.isSaved = false;
+            }
+            else
+            {
+                ViewBag.isSaved = true;
+            }
 
             return View(gameDeal);
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Save(String buttonAction, int itemId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var items = _context.UserLoots.Where(e => e.userId == userId && e.gameId == itemId);
+            if (buttonAction == "save"
+                && items.Count() == 0)
+            {
+                _context.UserLoots.Add(new UserLoot(userId, itemId));
+                await _context.SaveChangesAsync();
+            }
+            else if (buttonAction == "unsave"
+                && items.Count() > 0)
+            {
+                var userLoot = await _context.UserLoots.FindAsync(_context.UserLoots.SingleOrDefault(item => item.userId.Equals(userId) && item.gameId == itemId).id);
+                _context.UserLoots.Remove(userLoot);
+                await _context.SaveChangesAsync();
+            }
+            return Redirect("~/GameDeals/Details/" + itemId);
         }
 
         // GET: GameDeals/Create
@@ -91,7 +124,7 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var gameDeal = await _context.Courses.FindAsync(id);
+            var gameDeal = await _context.GameDeals.FindAsync(id);
             if (gameDeal == null)
             {
                 return NotFound();
@@ -142,7 +175,7 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
 
-            var gameDeal = await _context.Courses
+            var gameDeal = await _context.GameDeals
                 .FirstOrDefaultAsync(m => m.id == id);
             if (gameDeal == null)
             {
@@ -157,15 +190,15 @@ namespace GameGlamer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var gameDeal = await _context.Courses.FindAsync(id);
-            _context.Courses.Remove(gameDeal);
+            var gameDeal = await _context.GameDeals.FindAsync(id);
+            _context.GameDeals.Remove(gameDeal);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool GameDealExists(int id)
         {
-            return _context.Courses.Any(e => e.id == id);
+            return _context.GameDeals.Any(e => e.id == id);
         }
     }
 }

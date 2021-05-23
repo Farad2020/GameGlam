@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GameGlamer",
+    "\\GameGlamer\\Controllers"
   ],
-  "SelectedNode": "\\readme.md",
+  "SelectedNode": "\\GameGlamer\\Controllers",
   "PreviewInSolutionExplorer": false
 }

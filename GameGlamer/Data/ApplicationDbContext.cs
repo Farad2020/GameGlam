@@ -15,8 +15,10 @@ namespace GameGlamer.Data
         }
 
 
-        public DbSet<GameDeal> Courses { get; set; }
-        public DbSet<DLCorLootDeal> Enrollments { get; set; }
+        public DbSet<GameDeal> GameDeals { get; set; }
+        public DbSet<DLCorLootDeal> DLCorLootDeals { get; set; }
+        public DbSet<UserGame> UserGames { get; set; }
+        public DbSet<UserLoot> UserLoots { get; set; }
     }
 }
 // Login test@mail.ru Password: Test1234!
