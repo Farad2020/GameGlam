@@ -59,7 +59,7 @@ namespace GameGlamer.Controllers
                 return NotFound();
             }
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var items = _context.UserLoots.Where(e => e.userId == userId && e.gameId == gameDeal.id);
+            var items = _context.UserGames.Where(e => e.userId == userId && e.gameId == gameDeal.id);
             if(items.Count() == 0)
             {
                 ViewBag.isSaved = false;
@@ -77,18 +77,18 @@ namespace GameGlamer.Controllers
         public async Task<IActionResult> Save(String buttonAction, int itemId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var items = _context.UserLoots.Where(e => e.userId == userId && e.gameId == itemId);
+            var items = _context.UserGames.Where(e => e.userId == userId && e.gameId == itemId);
             if (buttonAction == "save"
                 && items.Count() == 0)
             {
-                _context.UserLoots.Add(new UserLoot(userId, itemId));
+                _context.UserGames.Add(new UserGame(userId, itemId));
                 await _context.SaveChangesAsync();
             }
             else if (buttonAction == "unsave"
                 && items.Count() > 0)
             {
-                var userLoot = await _context.UserLoots.FindAsync(_context.UserLoots.SingleOrDefault(item => item.userId.Equals(userId) && item.gameId == itemId).id);
-                _context.UserLoots.Remove(userLoot);
+                var userGame = await _context.UserGames.FindAsync(_context.UserGames.SingleOrDefault(item => item.userId.Equals(userId) && item.gameId == itemId).id);
+                _context.UserGames.Remove(userGame);
                 await _context.SaveChangesAsync();
             }
             return Redirect("~/GameDeals/Details/" + itemId);

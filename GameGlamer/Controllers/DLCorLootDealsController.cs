@@ -9,6 +9,7 @@ using GameGlamer.Data;
 using GameGlamer.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace GameGlamer.Controllers
 {
@@ -58,8 +59,39 @@ namespace GameGlamer.Controllers
             {
                 return NotFound();
             }
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var items = _context.UserLoots.Where(e => e.userId == userId && e.gameId == dLCorLootDeal.id);
+            if (items.Count() == 0)
+            {
+                ViewBag.isSaved = false;
+            }
+            else
+            {
+                ViewBag.isSaved = true;
+            }
 
             return View(dLCorLootDeal);
+        }
+
+
+        public async Task<IActionResult> Save(String buttonAction, int itemId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var items = _context.UserLoots.Where(e => e.userId == userId && e.gameId == itemId);
+            if (buttonAction == "save"
+                && items.Count() == 0)
+            {
+                _context.UserLoots.Add(new UserLoot(userId, itemId));
+                await _context.SaveChangesAsync();
+            }
+            else if (buttonAction == "unsave"
+                && items.Count() > 0)
+            {
+                var userLoot = await _context.UserLoots.FindAsync(_context.UserLoots.SingleOrDefault(item => item.userId.Equals(userId) && item.gameId == itemId).id);
+                _context.UserLoots.Remove(userLoot);
+                await _context.SaveChangesAsync();
+            }
+            return Redirect("~/DLCorLootDeals/Details/" + itemId);
         }
 
         // GET: DLCorLootDeals/Create

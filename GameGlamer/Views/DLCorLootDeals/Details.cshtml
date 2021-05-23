@@ -29,7 +29,21 @@
                             @Html.DisplayNameFor(model => model.worth)
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.worth)
+                            <div class="d-flex justify-content-between">
+                                @Html.DisplayFor(model => model.worth)
+
+                                <form asp-controller="DLCorLootDeals" asp-action="Save">
+                                    <input type="hidden" name="itemId" value="@Model.id" />
+                                    @if (ViewBag.isSaved)
+                                    {
+                                        <button name="buttonAction" value="unsave" class="btn"><i class="fas fa-bookmark"></i></button>
+                                    }
+                                    else
+                                    {
+                                        <button name="buttonAction" value="save" class="btn"><i class="far fa-bookmark"></i></button>
+                                    }
+                                </form>
+                            </div>
                         </dd>
                     }
 
